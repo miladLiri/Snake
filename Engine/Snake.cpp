@@ -17,7 +17,7 @@ void Snake::drow(Board& brd) const
 
 void Snake::move()
 {
-	assert(abs(delta.x) + aba(delta.y) == 1);
+	assert(abs(delta.x) + abs(delta.y) == 1);
 
 	for (int i = size-1 ; i > 0; i--)
 	{
