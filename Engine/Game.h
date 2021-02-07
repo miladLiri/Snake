@@ -5,6 +5,7 @@
 #include "Mouse.h"
 #include "Graphics.h"
 #include "Level1.h";
+#include "Level2.h"
 
 class Game
 {
@@ -31,4 +32,5 @@ private:
 	int level = 1;
 
 	Level1 level1;
+	Level2 level2;
 };
