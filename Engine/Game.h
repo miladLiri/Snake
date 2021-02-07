@@ -21,5 +21,12 @@ private:
 	MainWindow& wnd;
 	Graphics gfx;
 
+	enum status
+	{
+		WIN = 1,
+		LOSE = -1,
+		NOTFINISHED = 0,
+	};
+
 	Level1 level1;
 };

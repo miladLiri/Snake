@@ -20,15 +20,23 @@ private:
 	Snake snake;
 	Goal goal;
 	Counter counter;
-	bool gameIsOver = false;
+
 	bool gameIsStarted = false;
-	bool win = false;
+
+	enum status
+	{
+		WIN = 1,
+		LOSE = -1,
+		NOTFINISHED = 0,
+	};
+
+	status level = status::NOTFINISHED;
 
 public:
 	Level1(MainWindow& wnd, Graphics& gfx);
-	void composeFrame();
 	void updateModel();
-
+	void composeFrame();
+	int status();
 
 
 };

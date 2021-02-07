@@ -24,11 +24,11 @@ void Game::Go()
 void Game::UpdateModel()
 {
 
-	//level1.updateModel();
+	level1.updateModel();
 }
 
 void Game::ComposeFrame()
 {
-	std::cout << "hello" << std::endl;
-	//level1.composeFrame();
+	
+	level1.composeFrame();
 }

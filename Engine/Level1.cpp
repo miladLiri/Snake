@@ -11,12 +11,13 @@ Level1::Level1(MainWindow& wnd, Graphics& gfx)
 {
 }
 
-void Level1::composeFrame()
+void Level1::updateModel()
 {
 
 	if (gameIsStarted) {
 
-		if (gameIsOver || win) {
+		if (level != status::NOTFINISHED)
+		{
 			return;
 		}
 
@@ -25,11 +26,11 @@ void Level1::composeFrame()
 		counter.setLevel(snake.getTailSize());
 
 		if (snake.checkFinishRules(brd)) {
-			gameIsOver = true;
+			level = status::LOSE;
 		}
 
 		if (snake.getTailSize() == snake.getWinSize()) {
-			win = true;
+			level = status::WIN;
 		}
 	}
 	else
@@ -41,9 +42,8 @@ void Level1::composeFrame()
 
 }
 
-void Level1::updateModel()
+void Level1::composeFrame()
 {
-
 	brd.drowBorder();
 	counter.drow();
 
@@ -52,17 +52,36 @@ void Level1::updateModel()
 		snake.drow(brd);
 		goal.draw(brd);
 
-		if (gameIsOver)
+		if (level == status::LOSE)
 		{
 			brd.drowGameOver(350, 250);
 		}
 
-		if (win) {
+		if (level == status::WIN) {
 			brd.drowWin({ 13,12 }, Colors::Yellow);
 		}
 	}
 	else
 	{
 		brd.drowStart(300, 200);
+	}
+}
+
+int Level1::status()
+{
+	switch (level)
+	{
+
+	case Level1::WIN:
+		return status::WIN;
+		break;
+
+	case Level1::LOSE:
+		return status::LOSE;
+		break;
+
+	case Level1::NOTFINISHED:
+		return status::NOTFINISHED;
+		break;
 	}
 }
