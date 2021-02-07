@@ -23,12 +23,27 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
+	if (level1.status() == status::NOTFINISHED && level == 1)
+	{
+		level1.updateModel();
+	}
+	
+	if (level == 1 && level1.status() == status::LOSE && wnd.kbd.KeyIsPressed( VK_RETURN ) )
+	{
+		level1.reinit();
+	}
 
-	level1.updateModel();
+	if (level == 1 && level1.status() == status::WIN && wnd.kbd.KeyIsPressed(VK_RETURN))
+	{
+		level++;
+	}
 }
 
 void Game::ComposeFrame()
 {
+	if (level == 1)
+	{
+		level1.composeFrame();
+	}
 	
-	level1.composeFrame();
 }

@@ -5,7 +5,7 @@ Level1::Level1(MainWindow& wnd, Graphics& gfx)
 	wnd(wnd),
 	gfx(gfx),
 	brd(gfx),
-	snake({ 6,6 }),
+	snake(),
 	goal(brd, snake),
 	counter(gfx, snake.getWinSize())
 {
@@ -84,4 +84,11 @@ int Level1::status()
 		return status::NOTFINISHED;
 		break;
 	}
+}
+
+void Level1::reinit()
+{
+	snake.reinit();
+	gameIsStarted = false;
+	level = status::NOTFINISHED;
 }

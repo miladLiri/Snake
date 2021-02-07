@@ -28,5 +28,7 @@ private:
 		NOTFINISHED = 0,
 	};
 
+	int level = 1;
+
 	Level1 level1;
 };

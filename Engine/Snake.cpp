@@ -1,9 +1,9 @@
 #include "Snake.h"
 #include <assert.h>
 
-Snake::Snake(const Location& loc)
+Snake::Snake()
 {
-	segments[0].initHead(loc);
+	segments[0].initHead(initLocation);
 }
 
 void Snake::drow(Board& brd) const
@@ -148,6 +148,12 @@ int Snake::getTailSize() const
 	return size -1;
 }
 
+void Snake::reinit()
+{
+	size = 1;
+	segments[0].setLocation(initLocation);
+}
+
 void Snake::update(const MainWindow& wnd, const Board& brd)
 {
 	frameCounter++;
@@ -214,4 +220,9 @@ Location Snake::Segment::getLocation() const
 int Snake::Segment::getIndex() const
 {
 	return index;
+}
+
+void Snake::Segment::setLocation(const Location& in_loc)
+{
+	loc = in_loc;
 }

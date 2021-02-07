@@ -24,11 +24,13 @@ private:
 		void follow(const Segment& next);
 		Location getLocation() const;
 		int getIndex() const;
+		void setLocation(const Location& in_loc);
 	};
 
 private:
 
-	static constexpr int maxSegment = 31;
+	static constexpr Location initLocation = {6 , 6};
+	static constexpr int maxSegment = 6;
 	Segment segments[maxSegment];
 	int size = 1;
 	static constexpr Color headColor = Colors::Blue;
@@ -43,7 +45,7 @@ private:
 
 public:
 
-	Snake(const Location& loc);
+	Snake();
 	void drow(Board& brd) const;
 	void move();
 	void grow();
@@ -59,4 +61,5 @@ public:
 	bool checkFinishRules(const Board& brd);
 	int getWinSize() const;
 	int getTailSize() const;
+	void reinit();
 };
