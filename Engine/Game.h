@@ -1,13 +1,10 @@
 #pragma once
 
+#include <random>
 #include "Keyboard.h"
 #include "Mouse.h"
 #include "Graphics.h"
-#include "Board.h"
-#include "Snake.h"
-#include "Goal.h"
-#include <random>
-#include "Counter.h"
+#include "Level1.h";
 
 class Game
 {
@@ -24,13 +21,5 @@ private:
 	MainWindow& wnd;
 	Graphics gfx;
 
-	//std::random_device rd;
-	//std::mt19937 rng;
-	Board brd;
-	Snake snake;
-	Goal goal;
-	Counter counter;
-	bool gameIsOver = false;
-	bool gameIsStarted = false;
-	bool win = false;
+	Level1 level1;
 };

@@ -1,2 +1,19 @@
-﻿  Game.cpp
-  Engine.vcxproj -> C:\Users\Asus\tmp\cpp\snake\x64\Debug\Engine.exe
+﻿  compilation header save succeeded; see C:\Users\Asus\tmp\cpp\Snake\Engine\FramebufferPS.shh
+  compilation header save succeeded; see C:\Users\Asus\tmp\cpp\Snake\Engine\FramebufferVS.shh
+  Board.cpp
+  Counter.cpp
+  Game.cpp
+  Goal.cpp
+  Graphics.cpp
+  Main.cpp
+  MainWindow.cpp
+  Snake.cpp
+C:\Users\Asus\tmp\cpp\Snake\Engine\ChiliWin.h(24,1): warning C4005: '_WIN32_WINNT': macro redefinition (compiling source file Snake.cpp)
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\sdkddkver.h(217): message : see previous definition of '_WIN32_WINNT' (compiling source file Snake.cpp)
+C:\Users\Asus\tmp\cpp\Snake\Engine\ChiliWin.h(64,1): warning C4005: 'STRICT': macro redefinition (compiling source file Snake.cpp)
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\minwindef.h(23): message : see previous definition of 'STRICT' (compiling source file Snake.cpp)
+C:\Users\Asus\tmp\cpp\Snake\Engine\ChiliWin.h(24,1): warning C4005: '_WIN32_WINNT': macro redefinition (compiling source file Goal.cpp)
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\sdkddkver.h(217): message : see previous definition of '_WIN32_WINNT' (compiling source file Goal.cpp)
+C:\Users\Asus\tmp\cpp\Snake\Engine\ChiliWin.h(64,1): warning C4005: 'STRICT': macro redefinition (compiling source file Goal.cpp)
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\minwindef.h(23): message : see previous definition of 'STRICT' (compiling source file Goal.cpp)
+C:\Users\Asus\tmp\cpp\Snake\Engine\Snake.cpp(20,2): error C3861: 'aba': identifier not found
