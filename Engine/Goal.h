@@ -19,6 +19,6 @@ public:
 	Goal(const Board& brd,Snake& snake);
 	void draw(Board& brd) const;
 	void relocate(const Board& brd , const Snake& snake);
-	void consumption(const Board& brd, Snake& snake);
+	bool consumption(const Board& brd, Snake& snake);
 	Location getLocation() const;
 };

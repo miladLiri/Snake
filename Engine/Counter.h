@@ -21,5 +21,5 @@ public:
 	Counter(Graphics& gfx, int in_max);
 	int getLevel() const;
 	void setLevel(const int in_level);
-	void drow();
+	void draw();
 };

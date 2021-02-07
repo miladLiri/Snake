@@ -9,7 +9,7 @@ Level1::Level1(MainWindow& wnd, Graphics& gfx)
 	goal(brd, snake),
 	counter(gfx, snake.getWinSize())
 {
-	snake.config(10, false, true);
+	snake.config(15, false, true);
 }
 
 void Level1::updateModel()
@@ -45,26 +45,26 @@ void Level1::updateModel()
 
 void Level1::composeFrame()
 {
-	brd.drowBorder();
-	counter.drow();
+	brd.drawBorder();
+	counter.draw();
 
 	if (gameIsStarted) {
 
-		snake.drow(brd);
+		snake.draw(brd);
 		goal.draw(brd);
 
 		if (level == status::LOSE)
 		{
-			brd.drowGameOver(350, 250);
+			brd.drawGameOver(350, 250);
 		}
 
 		if (level == status::WIN) {
-			brd.drowWin({ 13,12 }, Colors::Yellow);
+			brd.drawWin({ 13,12 }, Colors::Yellow);
 		}
 	}
 	else
 	{
-		brd.drowStart(300, 200);
+		brd.drawStart(300, 200);
 	}
 }
 
@@ -89,7 +89,7 @@ int Level1::status()
 
 void Level1::reinit()
 {
-	snake.reinit();
+	snake.reinit(15, false, true);
 	gameIsStarted = false;
 	level = status::NOTFINISHED;
 }

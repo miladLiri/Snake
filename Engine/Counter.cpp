@@ -19,7 +19,7 @@ void Counter::setLevel(const int in_level)
 	}
 }
 
-void Counter::drow()
+void Counter::draw()
 {
 	const int levelHeight = ((gfx.ScreenHeight - 2 * (borderHeight + y) - levelPadding) / maxLevel) - levelPadding;
 	const int bottom = gfx.ScreenHeight - y - borderHeight;

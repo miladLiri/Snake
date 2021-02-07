@@ -9,7 +9,7 @@ Level2::Level2(MainWindow& wnd, Graphics& gfx)
 	goal(brd, snake),
 	counter(gfx, snake.getWinSize())
 {
-	snake.config(5, true, false);
+	snake.config(8, true, false);
 }
 
 void Level2::updateModel()
@@ -22,9 +22,17 @@ void Level2::updateModel()
 			return;
 		}
 
-		goal.consumption(brd, snake);
+		if (goal.consumption(brd, snake))
+		{
+			block.increase(snake,goal,brd);
+		}
+
 		snake.update(wnd, brd);
 		counter.setLevel(snake.getTailSize());
+
+		if (block.collision(snake)) {
+			level = status::LOSE;
+		}
 
 		if (snake.checkFinishRules(brd)) {
 			level = status::LOSE;
@@ -45,26 +53,27 @@ void Level2::updateModel()
 
 void Level2::composeFrame()
 {
-	brd.drowBorder();
-	counter.drow();
+	brd.drawBorder();
+	counter.draw();
 
 	if (gameIsStarted) {
 
-		snake.drow(brd);
+		snake.draw(brd);
 		goal.draw(brd);
+		block.draw(brd);
 
 		if (level == status::LOSE)
 		{
-			brd.drowGameOver(350, 250);
+			brd.drawGameOver(350, 250);
 		}
 
 		if (level == status::WIN) {
-			brd.drowWin({ 13,12 }, Colors::Yellow);
+			brd.drawWin({ 13,12 }, Colors::Yellow);
 		}
 	}
 	else
 	{
-		brd.drowStart(300, 200);
+		brd.drawStart(300, 200);
 	}
 }
 
@@ -89,7 +98,8 @@ int Level2::status()
 
 void Level2::reinit()
 {
-	snake.reinit();
+	snake.reinit(8,true,false);
+	block.reinit();
 	gameIsStarted = false;
 	level = status::NOTFINISHED;
 }

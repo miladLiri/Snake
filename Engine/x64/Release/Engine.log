@@ -1,13 +1,15 @@
-﻿  Game.cpp
+﻿  Block.cpp
+  Board.cpp
+  Game.cpp
   Goal.cpp
   Level1.cpp
   Level2.cpp
   Main.cpp
   MainWindow.cpp
   Snake.cpp
-C:\Users\Asus\tmp\cpp\Snake\Engine\Game.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline (compiling source file Main.cpp)
-C:\Users\Asus\tmp\cpp\Snake\Engine\Game.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline (compiling source file Game.cpp)
 C:\Users\Asus\tmp\cpp\Snake\Engine\Game.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline (compiling source file MainWindow.cpp)
+C:\Users\Asus\tmp\cpp\Snake\Engine\Game.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline (compiling source file Game.cpp)
+C:\Users\Asus\tmp\cpp\Snake\Engine\Game.h(7,10): warning C4067: unexpected tokens following preprocessor directive - expected a newline (compiling source file Main.cpp)
 C:\Users\Asus\tmp\cpp\Snake\Engine\ChiliWin.h(24,1): warning C4005: '_WIN32_WINNT': macro redefinition (compiling source file Snake.cpp)
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\sdkddkver.h(217): message : see previous definition of '_WIN32_WINNT' (compiling source file Snake.cpp)
 C:\Users\Asus\tmp\cpp\Snake\Engine\ChiliWin.h(64,1): warning C4005: 'STRICT': macro redefinition (compiling source file Snake.cpp)
@@ -16,18 +18,21 @@ C:\Users\Asus\tmp\cpp\Snake\Engine\ChiliWin.h(24,1): warning C4005: '_WIN32_WINN
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\sdkddkver.h(217): message : see previous definition of '_WIN32_WINNT' (compiling source file Level2.cpp)
 C:\Users\Asus\tmp\cpp\Snake\Engine\ChiliWin.h(64,1): warning C4005: 'STRICT': macro redefinition (compiling source file Level2.cpp)
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\minwindef.h(23): message : see previous definition of 'STRICT' (compiling source file Level2.cpp)
-C:\Users\Asus\tmp\cpp\Snake\Engine\ChiliWin.h(24,1): warning C4005: '_WIN32_WINNT': macro redefinition (compiling source file Level1.cpp)
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\sdkddkver.h(217): message : see previous definition of '_WIN32_WINNT' (compiling source file Level1.cpp)
-C:\Users\Asus\tmp\cpp\Snake\Engine\ChiliWin.h(64,1): warning C4005: 'STRICT': macro redefinition (compiling source file Level1.cpp)
-C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\minwindef.h(23): message : see previous definition of 'STRICT' (compiling source file Level1.cpp)
 C:\Users\Asus\tmp\cpp\Snake\Engine\ChiliWin.h(24,1): warning C4005: '_WIN32_WINNT': macro redefinition (compiling source file Goal.cpp)
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\sdkddkver.h(217): message : see previous definition of '_WIN32_WINNT' (compiling source file Goal.cpp)
 C:\Users\Asus\tmp\cpp\Snake\Engine\ChiliWin.h(64,1): warning C4005: 'STRICT': macro redefinition (compiling source file Goal.cpp)
 C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\minwindef.h(23): message : see previous definition of 'STRICT' (compiling source file Goal.cpp)
+C:\Users\Asus\tmp\cpp\Snake\Engine\ChiliWin.h(24,1): warning C4005: '_WIN32_WINNT': macro redefinition (compiling source file Level1.cpp)
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\sdkddkver.h(217): message : see previous definition of '_WIN32_WINNT' (compiling source file Level1.cpp)
+C:\Users\Asus\tmp\cpp\Snake\Engine\ChiliWin.h(64,1): warning C4005: 'STRICT': macro redefinition (compiling source file Level1.cpp)
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\minwindef.h(23): message : see previous definition of 'STRICT' (compiling source file Level1.cpp)
+C:\Users\Asus\tmp\cpp\Snake\Engine\ChiliWin.h(24,1): warning C4005: '_WIN32_WINNT': macro redefinition (compiling source file Block.cpp)
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\sdkddkver.h(217): message : see previous definition of '_WIN32_WINNT' (compiling source file Block.cpp)
+C:\Users\Asus\tmp\cpp\Snake\Engine\ChiliWin.h(64,1): warning C4005: 'STRICT': macro redefinition (compiling source file Block.cpp)
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.18362.0\shared\minwindef.h(23): message : see previous definition of 'STRICT' (compiling source file Block.cpp)
   Generating code
-C:\Users\Asus\tmp\cpp\Snake\Engine\Level2.cpp(88): warning C4715: 'Level2::status': not all control paths return a value
-  15 of 602 functions ( 2.5%) were compiled, the rest were copied from previous compilation.
-    4 functions were new in current compilation
-    6 functions had inline decision re-evaluated but remain unchanged
+  18 of 609 functions ( 3.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    4 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Engine.vcxproj -> C:\Users\Asus\tmp\cpp\Snake\x64\Release\Engine.exe

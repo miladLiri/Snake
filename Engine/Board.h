@@ -11,20 +11,20 @@ public:
 	Board(Graphics& gfx);
 	int getWidth() const;
 	int getHeight() const;
-	void drow(const Location& loc, const Color c);
-	void drowCirc(const Location& loc, const Color c);
-	void drowBorder();
-	void drowStart(const int x, const int y);
-	void drowGameOver(const int x, const int y);
-	void drowWin(const Location& loc, const Color c);
+	void draw(const Location& loc, const Color c);
+	void drawCirc(const Location& loc, const Color c);
+	void drawBorder();
+	void drawStart(const int x, const int y);
+	void drawGameOver(const int x, const int y);
+	void drawWin(const Location& loc, const Color c);
 
 private:
-	static constexpr int x = 240;
-	static constexpr int y = 120;
+	static constexpr int x = 110;
+	static constexpr int y = 70;
 	static constexpr int border = 10;
 	static constexpr int dimantion = 20;
-	static constexpr int width = 18;
-	static constexpr int height = 18;
+	static constexpr int width = 28;
+	static constexpr int height = 23;
 	Graphics& gfx;
 
 };

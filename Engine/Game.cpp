@@ -48,7 +48,7 @@ void Game::UpdateModel()
 
 	if (level == 2 && level2.status() == status::LOSE && wnd.kbd.KeyIsPressed(VK_RETURN))
 	{
-		level1.reinit();
+		level2.reinit();
 	}
 
 	if (level == 2 && level2.status() == status::WIN && wnd.kbd.KeyIsPressed(VK_RETURN))

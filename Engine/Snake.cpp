@@ -6,12 +6,12 @@ Snake::Snake()
 	segments[0].initHead(initLocation);
 }
 
-void Snake::drow(Board& brd) const
+void Snake::draw(Board& brd) const
 {
 	
 	for (int i = 0; i < size; i++)
 	{
-		segments[i].drow(brd);
+		segments[i].draw(brd);
 	}
 }
 
@@ -42,23 +42,27 @@ void Snake::grow()
 void Snake::control(const MainWindow& wnd)
 {
 
-	if (wnd.kbd.KeyIsPressed( VK_UP ) && (delta.y != 1  || size == 1))
+	if (wnd.kbd.KeyIsPressed( VK_UP ) && (delta.y != 1  || size == 1) && !isDeltaChanged)
 	{
+		isDeltaChanged = true;
 		delta = { 0,-1 };
 	}
 
-	if (wnd.kbd.KeyIsPressed(VK_DOWN) && (delta.y != -1 || size == 1))
+	if (wnd.kbd.KeyIsPressed(VK_DOWN) && (delta.y != -1 || size == 1) && !isDeltaChanged)
 	{
+		isDeltaChanged = true;
 		delta = { 0,1 };
 	}
 
-	if (wnd.kbd.KeyIsPressed(VK_RIGHT) && (delta.x != -1 || size == 1))
+	if (wnd.kbd.KeyIsPressed(VK_RIGHT) && (delta.x != -1 || size == 1) && !isDeltaChanged)
 	{
+		isDeltaChanged = true;
 		delta = { 1,0 };
 	}
 
-	if (wnd.kbd.KeyIsPressed(VK_LEFT) && (delta.x != 1 || size == 1))
+	if (wnd.kbd.KeyIsPressed(VK_LEFT) && (delta.x != 1 || size == 1) && !isDeltaChanged)
 	{
+		isDeltaChanged = true;
 		delta = { -1,0 };
 	}
 
@@ -150,10 +154,11 @@ int Snake::getTailSize() const
 	return size -1;
 }
 
-void Snake::reinit()
+void Snake::reinit(const int mvFrmRt, const bool AlSlfClsn, const bool SpdRsng)
 {
 	size = 1;
 	segments[0].setLocation(initLocation);
+	config(mvFrmRt, AlSlfClsn, SpdRsng);
 }
 
 void Snake::config(const int mvFrmRt, const bool AlSlfClsn, const bool SpdRsng)
@@ -168,14 +173,13 @@ void Snake::config(const int mvFrmRt, const bool AlSlfClsn, const bool SpdRsng)
 void Snake::update(const MainWindow& wnd, const Board& brd)
 {
 	frameCounter++;
+	control(wnd);
 	
 	if (frameCounter >= moveFrameRate) {
 
 		frameCounter = 0;
+		isDeltaChanged = false;
 		
-
-		control(wnd);
-
 		if (checkGoalConsumption) {
 			checkGoalConsumption = false;
 			grow();
@@ -207,9 +211,9 @@ void Snake::Segment::initBody(int in_index)
 	index = in_index;
 }
 
-void Snake::Segment::drow(Board& brd) const
+void Snake::Segment::draw(Board& brd) const
 {
-	brd.drow(loc, color);
+	brd.draw(loc, color);
 }
 
 void Snake::Segment::move(const Location& delta)

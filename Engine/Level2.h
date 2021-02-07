@@ -7,6 +7,7 @@
 #include "Snake.h"
 #include "Goal.h"
 #include "Counter.h"
+#include "Block.h"
 
 class Level2
 {
@@ -19,6 +20,7 @@ private:
 	Board brd;
 	Snake snake;
 	Goal goal;
+	Block block;
 	Counter counter;
 
 	bool gameIsStarted = false;
@@ -30,7 +32,7 @@ private:
 		NOTFINISHED = 0,
 	};
 
-	status level = status::NOTFINISHED;
+	status level = NOTFINISHED;
 
 public:
 	Level2(MainWindow& wnd, Graphics& gfx);

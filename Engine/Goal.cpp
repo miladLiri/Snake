@@ -7,7 +7,7 @@ Goal::Goal(const Board& brd, Snake& snake)
 
 void Goal::draw(Board& brd) const
 {
-	brd.drowCirc(loc, color);
+	brd.drawCirc(loc, color);
 }
 
 void Goal::relocate(const Board& brd, const Snake& snake)
@@ -27,12 +27,14 @@ void Goal::relocate(const Board& brd, const Snake& snake)
 	loc = newLoc;
 }
 
-void Goal::consumption(const Board& brd, Snake& snake)
+bool Goal::consumption(const Board& brd, Snake& snake)
 {
 	if (snake.isInTail(getLocation())) {
 		relocate(brd, snake);
 		snake.consumption();
+		return true;
 	}
+	return false;
 }
 
 Location Goal::getLocation() const

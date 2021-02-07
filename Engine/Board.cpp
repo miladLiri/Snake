@@ -17,7 +17,7 @@ int Board::getHeight() const
 	return height;
 }
 
-void Board::drow(const Location& loc, const Color c)
+void Board::draw(const Location& loc, const Color c)
 {
 	assert(loc.x >= 0);
 	assert(loc.y >= 0);
@@ -27,7 +27,7 @@ void Board::drow(const Location& loc, const Color c)
 	gfx.DrowRect((loc.x * dimantion) + x, (loc.y * dimantion) +y, dimantion, dimantion, c);
 }
 
-void Board::drowCirc(const Location& loc, const Color c)
+void Board::drawCirc(const Location& loc, const Color c)
 {
 	assert(loc.x >= 0);
 	assert(loc.y >= 0);
@@ -37,7 +37,7 @@ void Board::drowCirc(const Location& loc, const Color c)
 	gfx.DrowCircle(loc.x * dimantion + x, loc.y * dimantion + y, dimantion / 2, c);
 }
 
-void Board::drowBorder()
+void Board::drawBorder()
 {
 	Color c = Colors::Gray;
 
@@ -51,7 +51,7 @@ void Board::drowBorder()
 	
 }
 
-void Board::drowStart(const int x, const int y)
+void Board::drawStart(const int x, const int y)
 {
 		gfx.PutPixel(x + 0, y + 0, 179, 146, 127);
 		gfx.PutPixel(x + 0, y + 1, 201, 168, 151);
@@ -34509,7 +34509,7 @@ void Board::drowStart(const int x, const int y)
 		gfx.PutPixel(x + 213, y + 160, 114, 79, 48);
 }
 
-void Board::drowGameOver(const int x, const int y)
+void Board::drawGameOver(const int x, const int y)
 {
 		gfx.PutPixel(49 + x, 0 + y, 0, 146, 14);
 		gfx.PutPixel(50 + x, 0 + y, 0, 146, 14);
@@ -36601,41 +36601,41 @@ void Board::drowGameOver(const int x, const int y)
 		gfx.PutPixel(83 + x, 63 + y, 0, 146, 14);
 }
 
-void Board::drowWin(const Location& loc, const Color c)
+void Board::drawWin(const Location& loc, const Color c)
 {
 	int x = loc.x;
 	int y = loc.y;
 
-	drow({ x,y }, c);
-	drow({ x,y+1 }, c);
-	drow({ x,y+2 }, c);
-	drow({ x,y+3 }, c);
-	drow({ x+1,y+3 }, c);
-	drow({ x+2,y+3 }, c);
-	drow({ x+3,y+3 }, c);
-	drow({ x+4,y+3 }, c);
-	drow({ x+2,y+2 }, c);
-	drow({ x+2,y+1 }, c);
-	drow({ x+2,y }, c);
-	drow({ x+4,y+2 }, c);
-	drow({ x+4,y+1 }, c);
-	drow({ x+4,y }, c);
+	draw({ x,y }, c);
+	draw({ x,y+1 }, c);
+	draw({ x,y+2 }, c);
+	draw({ x,y+3 }, c);
+	draw({ x+1,y+3 }, c);
+	draw({ x+2,y+3 }, c);
+	draw({ x+3,y+3 }, c);
+	draw({ x+4,y+3 }, c);
+	draw({ x+2,y+2 }, c);
+	draw({ x+2,y+1 }, c);
+	draw({ x+2,y }, c);
+	draw({ x+4,y+2 }, c);
+	draw({ x+4,y+1 }, c);
+	draw({ x+4,y }, c);
 
 	x += 6;
 
-	drow({ x,y }, c);
-	drow({ x,y+2 }, c);
-	drow({ x,y+3 }, c);
+	draw({ x,y }, c);
+	draw({ x,y+2 }, c);
+	draw({ x,y+3 }, c);
 
 	x += 2;
 
-	drow({ x,y }, c);
-	drow({ x,y+1 }, c);
-	drow({ x,y+2 }, c);
-	drow({ x,y+3 }, c);
-	drow({ x+1,y }, c);
-	drow({ x+2,y }, c);
-	drow({ x+2,y+1 }, c);
-	drow({ x+2,y+2 }, c);
-	drow({ x+2,y+3 }, c);
+	draw({ x,y }, c);
+	draw({ x,y+1 }, c);
+	draw({ x,y+2 }, c);
+	draw({ x,y+3 }, c);
+	draw({ x+1,y }, c);
+	draw({ x+2,y }, c);
+	draw({ x+2,y+1 }, c);
+	draw({ x+2,y+2 }, c);
+	draw({ x+2,y+3 }, c);
 }
