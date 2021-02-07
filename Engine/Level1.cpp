@@ -59,12 +59,12 @@ void Level1::composeFrame()
 		}
 
 		if (level == status::WIN) {
-			brd.drawWin({ 13,12 }, Colors::Yellow);
+			brd.drawWin({ 8,10 }, Colors::Yellow);
 		}
 	}
 	else
 	{
-		brd.drawStart(300, 200);
+		brd.drawTitleLevel1({ 14,10 }, Colors::Yellow);
 	}
 }
 

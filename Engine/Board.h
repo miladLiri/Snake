@@ -17,6 +17,8 @@ public:
 	void drawStart(const int x, const int y);
 	void drawGameOver(const int x, const int y);
 	void drawWin(const Location& loc, const Color c);
+	void drawTitleLevel1(const Location& loc, const Color c);
+	void drawTitleLevel2(const Location& loc, const Color c);
 
 private:
 	static constexpr int x = 110;

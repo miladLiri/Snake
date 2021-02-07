@@ -73,7 +73,7 @@ void Level2::composeFrame()
 	}
 	else
 	{
-		brd.drawStart(300, 200);
+		brd.drawTitleLevel2({ 11,10 }, Colors::Yellow);
 	}
 }
 

@@ -51,6 +51,7 @@ void Board::drawBorder()
 	
 }
 
+
 void Board::drawStart(const int x, const int y)
 {
 		gfx.PutPixel(x + 0, y + 0, 179, 146, 127);
@@ -36638,4 +36639,24 @@ void Board::drawWin(const Location& loc, const Color c)
 	draw({ x+2,y+1 }, c);
 	draw({ x+2,y+2 }, c);
 	draw({ x+2,y+3 }, c);
+}
+
+void Board::drawTitleLevel1(const Location& loc, const Color c)
+{
+	int x = loc.x;
+	int y = loc.y;
+	draw({x,y}, c);
+	draw({x,y+1}, c);
+	draw({x,y+2}, c);
+	draw({x,y+3}, c);
+	draw({x,y+4}, c);
+}
+
+void Board::drawTitleLevel2(const Location& loc, const Color c)
+{
+	int x = loc.x;
+	int y = loc.y;
+
+	drawTitleLevel1({ x,y }, c);
+	drawTitleLevel1({ x+2,y }, c);
 }
