@@ -9,6 +9,7 @@ Level1::Level1(MainWindow& wnd, Graphics& gfx)
 	goal(brd, snake),
 	counter(gfx, snake.getWinSize())
 {
+	snake.config(10, false, true);
 }
 
 void Level1::updateModel()

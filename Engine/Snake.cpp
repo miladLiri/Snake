@@ -32,35 +32,37 @@ void Snake::grow()
 	if (size < maxSegment) {
 		segments[size].initBody(size);
 		size++;
+
+		if (speedRising && moveFrameRate > 3) {
+			moveFrameRate--;
+		}
 	}
 }
 
 void Snake::control(const MainWindow& wnd)
 {
 
-	if (wnd.kbd.KeyIsPressed( VK_UP ) && (delta.y != 1  || size == 1) && !isDeltaChanged)
+	if (wnd.kbd.KeyIsPressed( VK_UP ) && (delta.y != 1  || size == 1))
 	{
 		delta = { 0,-1 };
-		isDeltaChanged = true;
 	}
 
-	if (wnd.kbd.KeyIsPressed(VK_DOWN) && (delta.y != -1 || size == 1) && !isDeltaChanged)
+	if (wnd.kbd.KeyIsPressed(VK_DOWN) && (delta.y != -1 || size == 1))
 	{
 		delta = { 0,1 };
-		isDeltaChanged = true;
 	}
 
-	if (wnd.kbd.KeyIsPressed(VK_RIGHT) && (delta.x != -1 || size == 1) && !isDeltaChanged)
+	if (wnd.kbd.KeyIsPressed(VK_RIGHT) && (delta.x != -1 || size == 1))
 	{
 		delta = { 1,0 };
-		isDeltaChanged = true;
 	}
 
-	if (wnd.kbd.KeyIsPressed(VK_LEFT) && (delta.x != 1 || size == 1) && !isDeltaChanged)
+	if (wnd.kbd.KeyIsPressed(VK_LEFT) && (delta.x != 1 || size == 1))
 	{
 		delta = { -1,0 };
-		isDeltaChanged = true;
 	}
+
+	
 
 }
 
@@ -154,15 +156,23 @@ void Snake::reinit()
 	segments[0].setLocation(initLocation);
 }
 
+void Snake::config(const int mvFrmRt, const bool AlSlfClsn, const bool SpdRsng)
+{
+	moveFrameRate = mvFrmRt;
+	allowSelfCollision = AlSlfClsn;
+	speedRising = SpdRsng;
+}
+
+
+
 void Snake::update(const MainWindow& wnd, const Board& brd)
 {
 	frameCounter++;
 	
-
 	if (frameCounter >= moveFrameRate) {
 
 		frameCounter = 0;
-		isDeltaChanged = false;
+		
 
 		control(wnd);
 

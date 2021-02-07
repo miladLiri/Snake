@@ -30,18 +30,17 @@ private:
 private:
 
 	static constexpr Location initLocation = {6 , 6};
+	bool allowSelfCollision = true;
+	bool speedRising = false;
+	int moveFrameRate = 5;
 	static constexpr int maxSegment = 6;
 	Segment segments[maxSegment];
 	int size = 1;
 	static constexpr Color headColor = Colors::Blue;
 	static constexpr Color bodyColor1 = Colors::Cyan;
-	static constexpr Color bodyColor2 = Colors::Blue;
 	Location delta = { 1,0 };
-	static constexpr int moveFrameRate = 5;
 	int frameCounter = 0;
 	bool checkGoalConsumption = false;
-	bool allowSelfCollision = true;
-	bool isDeltaChanged = false;
 
 public:
 
@@ -62,4 +61,5 @@ public:
 	int getWinSize() const;
 	int getTailSize() const;
 	void reinit();
+	void config(const int MvFrmRt, const bool AlSlfClsn, const bool SpdRsng);
 };
