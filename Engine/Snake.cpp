@@ -6,6 +6,7 @@ Snake::Snake()
 	segments[0].initHead(initLocation);
 }
 
+
 void Snake::draw(Board& brd) const
 {
 	
@@ -14,6 +15,7 @@ void Snake::draw(Board& brd) const
 		segments[i].draw(brd);
 	}
 }
+
 
 void Snake::move()
 {
@@ -25,18 +27,6 @@ void Snake::move()
 	}
 
 	segments[0].move(delta);
-}
-
-void Snake::grow()
-{
-	if (size < maxSegment) {
-		segments[size].initBody(size);
-		size++;
-
-		if (speedRising && moveFrameRate > 3) {
-			moveFrameRate--;
-		}
-	}
 }
 
 void Snake::control(const MainWindow& wnd)
@@ -70,6 +60,7 @@ void Snake::control(const MainWindow& wnd)
 
 }
 
+
 Location Snake::targetLocation() const
 {
 	Location l(segments[0].getLocation());
@@ -83,6 +74,18 @@ Location Snake::targetLocation(Segment& segment) const
 	return segments[segment.getIndex() - 1].getLocation();
 }
 
+bool Snake::isInTail(const Location& loc) const
+{
+	for (int i = 0; i < size; i++)
+	{
+		if (segments[i].getLocation() == loc) {
+			return true;
+		}
+	}
+	return false;
+}
+
+
 bool Snake::checkWallColliding(const Board& brd) const
 {
 	Location target = targetLocation();
@@ -93,6 +96,25 @@ bool Snake::checkWallColliding(const Board& brd) const
 		target.x >= brd.getWidth() + 1  ||
 		target.y >= brd.getHeight() + 1;
 }
+
+
+void Snake::consumption()
+{
+	checkGoalConsumption = true;
+}
+
+void Snake::grow()
+{
+	if (size < maxSegment) {
+		segments[size].initBody(size);
+		size++;
+
+		if (speedRising && moveFrameRate > 3) {
+			moveFrameRate--;
+		}
+	}
+}
+
 
 int Snake::checkSelfColliding()
 {
@@ -107,22 +129,6 @@ int Snake::checkSelfColliding()
 	return 0;
 }
 
-bool Snake::isInTail(const Location& loc) const
-{
-	for (int i = 0; i < size; i++)
-	{
-		if (segments[i].getLocation() == loc) {
-			return true;
-		}
-	}
-	return false;
-}
-
-void Snake::consumption()
-{
-	checkGoalConsumption = true;
-}
-
 void Snake::selfCollision()
 {
 	int index = checkSelfColliding();
@@ -131,9 +137,10 @@ void Snake::selfCollision()
 	}
 }
 
+
 bool Snake::checkFinishRules(const Board& brd)
 {
-	bool selfCollision = checkSelfColliding();
+	bool selfCollision = bool(checkSelfColliding());
 
 	if (allowSelfCollision) {
 		selfCollision = false;
@@ -144,6 +151,7 @@ bool Snake::checkFinishRules(const Board& brd)
 		checkWallColliding(brd);
 }
 
+
 int Snake::getWinSize() const
 {
 	return maxSegment -1;
@@ -153,6 +161,7 @@ int Snake::getTailSize() const
 {
 	return size -1;
 }
+
 
 void Snake::reinit(const int mvFrmRt, const bool AlSlfClsn, const bool SpdRsng)
 {
@@ -167,7 +176,6 @@ void Snake::config(const int mvFrmRt, const bool AlSlfClsn, const bool SpdRsng)
 	allowSelfCollision = AlSlfClsn;
 	speedRising = SpdRsng;
 }
-
 
 
 void Snake::update(const MainWindow& wnd, const Board& brd)

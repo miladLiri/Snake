@@ -21,7 +21,7 @@ public:
 	void drawTitleLevel2(const Location& loc, const Color c);
 
 private:
-	static constexpr int x = 110;
+	static constexpr int x = 80;
 	static constexpr int y = 70;
 	static constexpr int border = 10;
 	static constexpr int dimantion = 20;

@@ -50,6 +50,7 @@ void Level1::composeFrame()
 
 	if (gameIsStarted) {
 
+		brd.drawTitleLevel1({ 30,9 }, Colors::Yellow);
 		snake.draw(brd);
 		goal.draw(brd);
 
@@ -64,7 +65,7 @@ void Level1::composeFrame()
 	}
 	else
 	{
-		brd.drawTitleLevel1({ 14,10 }, Colors::Yellow);
+		brd.drawTitleLevel1({ 14,9 }, Colors::Yellow);
 	}
 }
 

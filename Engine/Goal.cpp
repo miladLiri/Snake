@@ -10,6 +10,7 @@ void Goal::draw(Board& brd) const
 	brd.drawCirc(loc, color);
 }
 
+
 void Goal::relocate(const Board& brd, const Snake& snake)
 {
 	Location newLoc;

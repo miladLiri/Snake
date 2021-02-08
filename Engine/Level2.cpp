@@ -22,13 +22,13 @@ void Level2::updateModel()
 			return;
 		}
 
+		snake.update(wnd, brd);
+		counter.setLevel(snake.getTailSize());
+
 		if (goal.consumption(brd, snake))
 		{
 			block.increase(snake,goal,brd);
 		}
-
-		snake.update(wnd, brd);
-		counter.setLevel(snake.getTailSize());
 
 		if (block.collision(snake)) {
 			level = status::LOSE;
@@ -58,6 +58,7 @@ void Level2::composeFrame()
 
 	if (gameIsStarted) {
 
+		brd.drawTitleLevel2({ 30,9 }, Colors::Yellow);
 		snake.draw(brd);
 		goal.draw(brd);
 		block.draw(brd);
@@ -68,12 +69,12 @@ void Level2::composeFrame()
 		}
 
 		if (level == status::WIN) {
-			brd.drawWin({ 13,12 }, Colors::Yellow);
+			brd.drawWin({ 8,10 }, Colors::Yellow);
 		}
 	}
 	else
 	{
-		brd.drawTitleLevel2({ 11,10 }, Colors::Yellow);
+		brd.drawTitleLevel2({ 13,9 }, Colors::Yellow);
 	}
 }
 

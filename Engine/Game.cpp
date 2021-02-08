@@ -24,12 +24,12 @@ void Game::Go()
 
 void Game::UpdateModel()
 {
-	if (level1.status() == status::NOTFINISHED && level == 1)
+	if (level == 1 && level1.status() == status::NOTFINISHED)
 	{
 		level1.updateModel();
 	}
 	
-	if (level == 1 && level1.status() == status::LOSE && wnd.kbd.KeyIsPressed( VK_RETURN ) )
+	if (level == 1 && level1.status() == status::LOSE && wnd.kbd.KeyIsPressed(VK_RETURN))
 	{
 		level1.reinit();
 	}
@@ -41,7 +41,7 @@ void Game::UpdateModel()
 
 	//level 2
 
-	if (level2.status() == status::NOTFINISHED && level == 2)
+	if (level == 2 && level2.status() == status::NOTFINISHED)
 	{
 		level2.updateModel();
 	}

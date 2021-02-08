@@ -33,7 +33,7 @@ private:
 	bool allowSelfCollision = true;
 	bool speedRising = false;
 	int moveFrameRate = 5;
-	static constexpr int maxSegment = 2;
+	static constexpr int maxSegment = 11;
 	Segment segments[maxSegment];
 	int size = 1;
 	static constexpr Color headColor = Colors::Blue;
